@@ -37,7 +37,7 @@ export default async function Students() {
   const result = await getData();
 
   return (
-    <div className="border-4 border-[#22D1EE] rounded-lg w-40 text-center  bg-[#E2F3F5] text-[#3D5AF1] font-semibold p-2">
+    <div className="border-4 border-[#22D1EE] rounded-lg w-fit text-center  bg-[#E2F3F5] text-[#3D5AF1] font-semibold p-2">
       <h1>Students Page</h1>
       <ul className=" text-left">
         {result.map((item: Todo) => (

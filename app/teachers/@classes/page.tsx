@@ -17,7 +17,7 @@ interface Activity {
 let result: Activity;
 
 export default async function Classes() {
-  // await new Promise((resolve) => setTimeout(resolve, 500));
+  await new Promise((resolve) => setTimeout(resolve, 500));
 
   //Using the Fetch API Method - this console logs the data but need to get into the page
 
@@ -47,7 +47,7 @@ export default async function Classes() {
   const result = await getData();
 
   return (
-    <div className="border-4 border-[#3D5AF1] rounded-lg w-40 text-center bg-[#22D1EE] text-white font-semibold p-2">
+    <div className="border-4 border-[#3D5AF1] rounded-lg w-fit text-center bg-[#22D1EE] text-white font-semibold p-2">
       Classes Page
       <ul className="text-left">
         {result.map((item: Activity) => (
