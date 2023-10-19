@@ -36,11 +36,19 @@ export default async function Classes() {
   async function getData() {
     const url = "https://bored-api.appbrewery.com/filter";
     try {
-      const response = await axios.get(url);
-      console.log("-----------------Classes----------------");
-      return response.data;
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error("Failed data fetch");
+      }
+      // console.log(response.headers);
+      // console.log(response.ok);
+      // console.log(response.status);
+      // console.log(response.url);
+
+      return response.json();
     } catch (error) {
-      console.log("Failed to make request:", error);
+      console.log("There was an error:", error);
     }
   }
 
@@ -49,6 +57,7 @@ export default async function Classes() {
   return (
     <div className="border-4 border-[#3D5AF1] rounded-lg w-fit text-center bg-[#22D1EE] text-white font-semibold p-2">
       Classes Page
+      <div></div>
       <ul className="text-left">
         {result.map((item: Activity) => (
           <li key={item.key}>{item.activity}</li>
