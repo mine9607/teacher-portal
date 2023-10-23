@@ -1,18 +1,13 @@
 import Image from "next/image";
 import React from "react";
+import ModeToggle from "./ui/mode-toggle";
 
-export default function Navbar({ children }) {
+export default function Navbar() {
   return (
     <>
-      <header>
-        <div className=" border-black border-2 ">Logo</div>
-        <ul className=" ">
-          <li>Corporate Classes</li>
-          <li>Teacher Portal</li>
-          <li>Private Classes</li>
-        </ul>
+      <header className="flex m-4 justify-end items-center">
+        <ModeToggle />
       </header>
-      <div>{children}</div>
     </>
   );
 }

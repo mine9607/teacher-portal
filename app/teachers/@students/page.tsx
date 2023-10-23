@@ -34,6 +34,7 @@ interface Photos {
 export default async function Students() {
   // await new Promise((resolve) => setTimeout(resolve, 1500));
   async function getData() {
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     // const url = "https://bored-api.appbrewery.com/filter";
     // const url = "https://picsum.photos/200/300";
     const url = "https://jsonplaceholder.typicode.com/photos";
@@ -51,8 +52,6 @@ export default async function Students() {
       // console.log(`URL: ${response.config?.url}`);
       // console.log("----------------Status-----------------");
       // console.log(`Status: ${response.statusText} - Code: ${response.status}`);
-
-      console.log(response.data);
       return response.data;
     } catch (error) {
       console.log("Failed to make request:", error);
@@ -62,9 +61,9 @@ export default async function Students() {
   const result = await getData();
 
   return (
-    <div className="border-4 border-[#22D1EE] rounded-lg w-fit text-center  bg-[#E2F3F5] text-[#3D5AF1] font-semibold p-2">
-      <h1>Students Page</h1>
-      <ul className=" text-left">
+    <div className="bg-background border rounded-md border-border text-muted p-2">
+      <h2 className="text-xl text-primary p-2">Students Page</h2>
+      <ul className=" text-left text-primary dark:text-secondary">
         {result.map((item: Photos) => (
           <li key={item.id}>{item.url}</li>
         ))}

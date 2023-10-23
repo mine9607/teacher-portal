@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import axios from "axios";
 import React from "react";
 
@@ -35,29 +36,28 @@ export default async function Classes() {
 
   async function getData() {
     const url = "https://bored-api.appbrewery.com/filter";
-    try {
-      const response = await fetch(url);
+    // try {
+    const response = await fetch(url);
 
-      if (!response.ok) {
-        throw new Error("Failed data fetch");
-      }
-      // console.log(response.headers);
-      // console.log(response.ok);
-      // console.log(response.status);
-      // console.log(response.url);
-
-      return response.json();
-    } catch (error) {
-      console.log("There was an error:", error);
+    if (!response.ok) {
+      throw new Error("Failed data fetch");
     }
+    // console.log(response.headers);
+    // console.log(response.ok);
+    // console.log(response.status);
+    // console.log(response.url);
+
+    return response.json();
+    // } catch (error) {
+    console.log("There was an error:", error);
+    // }
   }
 
   const result = await getData();
 
   return (
-    <div className="border-4 border-[#3D5AF1] rounded-lg w-fit text-center bg-[#22D1EE] text-white font-semibold p-2">
-      Classes Page
-      <div></div>
+    <div className="bg-background border rounded-md border-border text-primary dark:text-secondary p-2">
+      <h2 className="text-xl text-primary p-2">Classes Page</h2>
       <ul className="text-left">
         {result.map((item: Activity) => (
           <li key={item.key}>{item.activity}</li>
